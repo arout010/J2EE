@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditRecordTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditRecordLabel_mob_no}" for="mob_no" />
+                    <h:inputText id="mob_no" value="#{recordController.selected.mob_no}" title="#{bundle.EditRecordTitle_mob_no}" />
+                    <h:outputLabel value="#{bundle.EditRecordLabel_lname}" for="lname" />
+                    <h:inputText id="lname" value="#{recordController.selected.lname}" title="#{bundle.EditRecordTitle_lname}" />
+                    <h:outputLabel value="#{bundle.EditRecordLabel_FName}" for="FName" />
+                    <h:inputText id="FName" value="#{recordController.selected.FName}" title="#{bundle.EditRecordTitle_FName}" />
+                    <h:outputLabel value="#{bundle.EditRecordLabel_password}" for="password" />
+                    <h:inputText id="password" value="#{recordController.selected.password}" title="#{bundle.EditRecordTitle_password}" />
+                    <h:outputLabel value="#{bundle.EditRecordLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{recordController.selected.id}" title="#{bundle.EditRecordTitle_id}" />
+                </h:panelGrid>
+                <h:commandLink action="#{recordController.update}" value="#{bundle.EditRecordSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditRecordViewLink}"/>
+                <br />
+                <h:commandLink action="#{recordController.prepareList}" value="#{bundle.EditRecordShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditRecordIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
